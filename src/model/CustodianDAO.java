@@ -31,9 +31,7 @@ public class CustodianDAO {
 			pstmt.setString(6, custodian.getDoctorTelecomNumber());
 			pstmt.setInt(7, custodian.getDepartmentCode());
 			pstmt.setString(8, custodian.getDepartmentName());
-			
 			int result = pstmt.executeUpdate();
-			
 			if(result == 1) {
 				return true;
 			}
@@ -56,7 +54,6 @@ public class CustodianDAO {
 				pstmt.setInt(3, departmentcode);
 				pstmt.setString(4, departmentname);
 				pstmt.setInt(5, medicallicenseID);
-				
 				int result = pstmt.executeUpdate();
 				if(result == 1) {
 					return true;
@@ -75,9 +72,7 @@ public class CustodianDAO {
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("custodian.delete"));
-			
 			pstmt.setString(1, medicallicenseid);
-			
 			int result = pstmt.executeUpdate();
 			if(result != 0) {
 				return true;

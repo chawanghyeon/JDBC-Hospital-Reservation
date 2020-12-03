@@ -32,9 +32,7 @@ public class PatientDAO {
 			pstmt.setString(7, patient.getReservationDate());
 			pstmt.setString(8, patient.getReservationTime());
 			pstmt.setInt(9, patient.getMedicalLicenseID());
-			
 			int result = pstmt.executeUpdate();
-			
 			if(result == 1) {
 				return true;
 			}
@@ -55,7 +53,6 @@ public class PatientDAO {
 				pstmt.setString(1, reservationdate);
 				pstmt.setString(2, reservationtime);
 				pstmt.setString(3, patientId);
-				
 				int result = pstmt.executeUpdate();
 				if(result == 1) {
 					return true;
@@ -74,10 +71,8 @@ public class PatientDAO {
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("patient.delete"));
-			
 			pstmt.setString(1, patientId);
 			int result = pstmt.executeUpdate();
-			
 			if(result != 0) {
 				return true;
 			}

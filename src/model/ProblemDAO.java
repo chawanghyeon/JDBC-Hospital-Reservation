@@ -45,7 +45,6 @@ public class ProblemDAO {
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.update"));
 			pstmt.setString(1, problemName);
 			pstmt.setString(2, problemCode);
-			
 			if (pstmt.executeUpdate() == 1) {
 				return true;
 			}
@@ -64,7 +63,6 @@ public class ProblemDAO {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.delete"));
 			pstmt.setString(1, problemCode);
-			
 			if (pstmt.executeUpdate() == 1) {
 				return true;
 			}
