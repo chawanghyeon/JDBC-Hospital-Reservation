@@ -12,6 +12,11 @@ DROP TABLE informationrecipient cascade constraint;
 
 DROP SEQUENCE patient_id_seq;
 
+DROP TABLE problem;
+DROP TABLE patient;
+DROP TABLE custodian;
+DROP TABLE informationrecipient;
+
 CREATE TABLE custodian (
        MedicalLicenseID     NUMBER(5) PRIMARY KEY,
        CustodianName        VARCHAR2(20) NOT NULL,
@@ -30,7 +35,7 @@ CREATE TABLE informationrecipient (
        TelecomNumber        VARCHAR2(20) NOT NULL,
        City           		VARCHAR2(20) NOT NULL, 
        DepartmentName      	VARCHAR2(20) NOT NULL,
-       DepartmentCode      	NUMBER(4) NOT NULL,
+       DepartmentCode      	NUMBER(4) NOT NULL
 );
 
 CREATE TABLE patient (
@@ -42,7 +47,7 @@ CREATE TABLE patient (
        City                 VARCHAR2(20) NOT NULL,
        ReservationDate      VARCHAR2(20) NOT NULL,
        ReservationTime      VARCHAR2(20) NOT NULL,
-       MedicalLicenseID     NUMBER(5) NOT NULL,
+       MedicalLicenseID     NUMBER(5) NOT NULL
 );
 ​
 CREATE TABLE problem (
@@ -54,6 +59,6 @@ CREATE TABLE problem (
 
 CREATE SEQUENCE patient_id_seq;
 
-ALTER TABLE patient  ADD FOREIGN KEY (MedicalLicenseID) REFERENCES custodian (MedicalLicenseID);
 ALTER TABLE problem ADD FOREIGN KEY (PatientId)  REFERENCES patient (PatientId);
+ALTER TABLE patient  ADD FOREIGN KEY (MedicalLicenseID) REFERENCES custodian (MedicalLicenseID);
 ALTER TABLE custodian ADD FOREIGN KEY (OID) REFERENCES informationrecipient (OID);
