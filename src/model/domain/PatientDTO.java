@@ -18,7 +18,7 @@ public class PatientDTO {
 	private String City; // "성남시"
 	private String ReservationDate; // "2020-11-30"
 	private String ReservationTime; // "09:20:00"
-	private int MedicalLicenseID;
+	private int MedicalLicenseID; // 의사 ID
 	
 	@Override
 	public String toString() {
