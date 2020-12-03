@@ -10,7 +10,7 @@ public class StartView {
 		HospitalReservationController controller = HospitalReservationController.getInstance();
 
 		System.out.println("-----환자 Id로 환자 검색-----");
-		controller.getPatient("pt003"); // 검색 성공 or 실패
+		controller.getPatient("pt014"); // 실패 출력되어야 함
 
 		System.out.println("-----모든 의료기관 검색-----");
 		controller.getAllInfromationRecipient();
