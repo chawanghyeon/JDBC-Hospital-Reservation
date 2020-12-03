@@ -51,10 +51,10 @@ CREATE TABLE patient (
 );
 ​
 CREATE TABLE problem (
-       PatientId          	VARCHAR2(20) NOT NULL,
+       ProblemCode  	    VARCHAR2(20) PRIMARY KEY,
        StartDate            NUMBER(10) NOT NULL,
-       ProblemCode  	    VARCHAR2(20) NOT NULL,
-       ProblemName  	    VARCHAR2(200) NOT NULL
+       ProblemName  	    VARCHAR2(200) NOT NULL,
+       PatientId          	VARCHAR2(20) NOT NULL
 );
 
 CREATE SEQUENCE patient_id_seq;
