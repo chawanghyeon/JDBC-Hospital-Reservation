@@ -10,7 +10,7 @@ public class StartView {
 		HospitalReservationController controller = HospitalReservationController.getInstance();
 
 		System.out.println("-----환자 Id로 환자 검색-----");
-		controller.getPatient("PatientId"); // 검색 성공 or 실패
+		controller.getPatient("pt003"); // 검색 성공 or 실패
 
 		System.out.println("-----모든 의료기관 검색-----");
 		controller.getAllInfromationRecipient();
@@ -19,16 +19,16 @@ public class StartView {
 		controller.getAllCustodian();
 
 		System.out.println("-----특정 의사 선택해서 예약-----");
-		controller.addPatient(new PatientDTO());
+		controller.addPatient(new PatientDTO("pt014", 19980907, "박현진", "Male", "010-1234-5678", "수원시", "2020-12-04", "14:00:00", 11120));
 
 		System.out.println("-----환자 Id로 예약 정보 확인-----");
-		controller.getPatient("PatientId");
+		controller.getPatient("pt014");
 
 		System.out.println("-----진료 완료 후 진단 내역 생성-----");
-		controller.addProblem(new ProblemDTO());
+		controller.addProblem(new ProblemDTO("pt014", 20201204, "A0011", "앞트임"));
 
 		System.out.println("-----진단 내역 출력 후 다음 단계 출력-----");
-		controller.getProblem("PatientId");
+		controller.getProblem("A0011");
 
 	}
 
