@@ -29,7 +29,7 @@ public class HospitalReservationService {
 	public void notExistCustodian(int medicallicenseid) throws NotExistException, SQLException {
 		CustodianDTO custodian = custodianDAO.getCustodian(medicallicenseid);
 		if (custodian == null) {
-			throw new NotExistException("검색하진 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하진 의사 정보가 없습니다.");
 		}
 	}
 
@@ -40,7 +40,7 @@ public class HospitalReservationService {
 	public CustodianDTO getCustodian(int medicallicenseid) throws SQLException, NotExistException {
 		CustodianDTO custodian = custodianDAO.getCustodian(medicallicenseid);
 		if (custodian == null) {
-			throw new NotExistException("검색하신 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하신 의사 정보가 없습니다.");
 		}
 		return custodian;
 	}
@@ -65,7 +65,7 @@ public class HospitalReservationService {
 	public void notExistInformationRecipient(int OID) throws NotExistException, SQLException {
 		InformationRecipientDTO informationRecipient = informationRecipientDAO.getInformationRecipient(OID);
 		if (informationRecipient == null) {
-			throw new NotExistException("검색하진 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하진 기관 정보가 없습니다.");
 		}
 	}
 
@@ -76,7 +76,7 @@ public class HospitalReservationService {
 	public InformationRecipientDTO getInformationRecipient(int OID) throws SQLException, NotExistException {
 		InformationRecipientDTO informationRecipient = informationRecipientDAO.getInformationRecipient(OID);
 		if (informationRecipient == null) {
-			throw new NotExistException("검색하신 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하신 기관 정보가 없습니다.");
 		}
 		return informationRecipient;
 	}
@@ -100,7 +100,7 @@ public class HospitalReservationService {
 	public void notExistPatient(String patientId) throws NotExistException, SQLException {
 		PatientDTO patient = patientDAO.getPatient(patientId);
 		if (patient == null) {
-			throw new NotExistException("검색하진 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하진 예약 정보가 없습니다.");
 		}
 	}
 
@@ -111,7 +111,7 @@ public class HospitalReservationService {
 	public PatientDTO getPatient(String patientId) throws SQLException, NotExistException {
 		PatientDTO patient = patientDAO.getPatient(patientId);
 		if (patient == null) {
-			throw new NotExistException("검색하신 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하신 예약 정보가 없습니다.");
 		}
 		return patient;
 	}
@@ -135,7 +135,7 @@ public class HospitalReservationService {
 	public void notExistProblem(String problemcode) throws NotExistException, SQLException {
 		ProblemDTO problem = problemDAO.getProblem(problemcode);
 		if (problem == null) {
-			throw new NotExistException("검색하진 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하진 진단 내역이 없습니다.");
 		}
 	}
 
@@ -146,7 +146,7 @@ public class HospitalReservationService {
 	public ProblemDTO getProblem(String problemcode) throws SQLException, NotExistException {
 		ProblemDTO problem = problemDAO.getProblem(problemcode);
 		if (problem == null) {
-			throw new NotExistException("검색하신 재능기부 정보가 없습니다.");
+			throw new NotExistException("검색하신 진단 내역이 없습니다.");
 		}
 		return problem;
 	}
