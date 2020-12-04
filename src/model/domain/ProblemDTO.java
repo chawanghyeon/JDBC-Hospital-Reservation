@@ -10,18 +10,18 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProblemDTO {
-	String PatientId; // 환자 아이디
-	int StartDate; // "20160201", "20160201"
 	String ProblemCode; // "M8416" , "B019"
+	int StartDate; // "20160201", "20160201"
 	String ProblemName; // "골절의 불유합","합병증이 없는 수두"
+	String PatientId; // 환자 아이디
 	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("ProblemDTO [StartDate=");
-		builder.append(StartDate);
-		builder.append(", ProblemCode=");
+		builder.append("ProblemDTO [ProblemCode=");
 		builder.append(ProblemCode);
+		builder.append(", StartDate=");
+		builder.append(StartDate);
 		builder.append(", ProblemName=");
 		builder.append(ProblemName);
 		builder.append(", PatientId=");
@@ -29,7 +29,5 @@ public class ProblemDTO {
 		builder.append("]");
 		return builder.toString();
 	}
-	
-
 }
 

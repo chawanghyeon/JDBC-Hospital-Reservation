@@ -108,7 +108,7 @@ public class PatientDAO {
 						rset.getString(5), rset.getString(6), rset.getString(7), rset.getString(8), rset.getInt(9));
 			}
 		} finally {
-			DBUtil.close(con, pstmt);
+			DBUtil.close(con, pstmt, rset);
 		}
 		return null;
 	}

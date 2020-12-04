@@ -85,7 +85,7 @@ public class ProblemDAO {
 	}
 
 	// ProblemCode로 해당 Problem 모든 정보 검색
-	public ProblemDTO getProblem(String problemcode) throws SQLException {
+	public ProblemDTO getProblem(String problemCode) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -93,7 +93,7 @@ public class ProblemDAO {
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.getProblem"));
-			pstmt.setString(1, problemcode);
+			pstmt.setString(1, problemCode);
 			rset = pstmt.executeQuery();
 
 			if (rset.next()) {
