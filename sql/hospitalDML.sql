@@ -26,15 +26,15 @@ insert into patient(PatientId, DateOfBirth, PatientName, Gender, TelecomNumber, 
 insert into patient(PatientId, DateOfBirth, PatientName, Gender, TelecomNumber, City, ReservationDate, ReservationTime, MedicalLicenseID) values ('pt013',19900518,'박동민','Male','010-9999-0013','광주시','44147','0.883599537037037',11116);
 
 -- insert datas into problem [진단내역]
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (B0001,'20190312','안검하수','pt004');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (B0002,'20200512','양악수술','pt005');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (B0003,'20200430','3도 화상','pt006');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (B0004,'20140126','백반증','pt007');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (A0005,'20001023','앞트임','pt008');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (A0006,'20071223','콧대','pt009');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (A0007,'20141113','여드름 흉터','pt010');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (A0008,'20200515','레이저','pt011');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (B0009,'20201010','쌍커풀 수술','pt012');
-insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values (A0010,'20140609','옴','pt013');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('B0001','20190312','안검하수','pt004');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('B0002','20200512','양악수술','pt005');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('B0003','20200430','3도 화상','pt006');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('B0004','20140126','백반증','pt007');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('A0005','20001023','앞트임','pt008');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('A0006','20071223','콧대','pt009');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('A0007','20141113','여드름 흉터','pt010');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('A0008','20200515','레이저','pt011');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('B0009','20201010','쌍커풀 수술','pt012');
+insert into problem(ProblemCode,StartDate, ProblemName, PatientId) values ('A0010','20140609','옴','pt013');
 
 commit;

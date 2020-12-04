@@ -23,7 +23,7 @@ public class HospitalReservationController {
 		try {
 			EndView.patientView(service.getPatient(patientId));
 		} catch(Exception e){
-			e.printStackTrace();
+//			e.printStackTrace();
 			EndView.showError("환자 id로 해당 환자 검색 오류");
 		}
 	}
