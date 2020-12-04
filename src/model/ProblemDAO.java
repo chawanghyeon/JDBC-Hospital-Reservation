@@ -14,11 +14,20 @@ public class ProblemDAO {
 
 	static Properties sqlAll = DBUtil.getSqlAll();
 
-	//저장
-	public static boolean addProblem(ProblemDTO problem) throws SQLException{
+	private static ProblemDAO instance = new ProblemDAO();
+
+	private ProblemDAO() {
+	}
+
+	public static ProblemDAO getInstance() {
+		return instance;
+	}
+
+	// 저장
+	public boolean addProblem(ProblemDTO problem) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-	
+
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.insert"));
@@ -26,6 +35,7 @@ public class ProblemDAO {
 			pstmt.setInt(2, problem.getStartDate());
 			pstmt.setString(3, problem.getProblemCode());
 			pstmt.setString(4, problem.getProblemName());
+
 			if (pstmt.executeUpdate() == 1) {
 				return true;
 			}
@@ -34,17 +44,18 @@ public class ProblemDAO {
 		}
 		return false;
 	}
-	
-	//수정
-	public static boolean updateProblem(String problemCode, String problemName) throws SQLException {
+
+	// 수정
+	public boolean updateProblem(String problemCode, String problemName) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
+
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.update"));
 			pstmt.setString(1, problemName);
 			pstmt.setString(2, problemCode);
+
 			if (pstmt.executeUpdate() == 1) {
 				return true;
 			}
@@ -53,16 +64,17 @@ public class ProblemDAO {
 		}
 		return false;
 	}
-	
-	//삭제
-	public static boolean deleteProblem(String problemCode) throws SQLException {
+
+	// 삭제
+	public boolean deleteProblem(String problemCode) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		
+
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.delete"));
 			pstmt.setString(1, problemCode);
+
 			if (pstmt.executeUpdate() == 1) {
 				return true;
 			}
@@ -71,9 +83,9 @@ public class ProblemDAO {
 		}
 		return false;
 	}
-	
+
 	// ProblemCode로 해당 Problem 모든 정보 검색
-	public static ProblemDTO getProblem(String problemcode) throws SQLException {
+	public ProblemDTO getProblem(String problemcode) throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
@@ -83,35 +95,31 @@ public class ProblemDAO {
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.getProblem"));
 			pstmt.setString(1, problemcode);
 			rset = pstmt.executeQuery();
+
 			if (rset.next()) {
-				return new ProblemDTO(rset.getString(1), 
-										rset.getInt(2), 
-										rset.getString(3),
-										rset.getString(4));
+				return new ProblemDTO(rset.getString(1), rset.getInt(2), rset.getString(3), rset.getString(4));
 			}
 		} finally {
 			DBUtil.close(con, pstmt, rset);
 		}
 		return null;
 	}
-		
+
 	// 모든 problem 검색
-	public static ArrayList<ProblemDTO> getAllProblems() throws SQLException {
+	public ArrayList<ProblemDTO> getAllProblems() throws SQLException {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		ArrayList<ProblemDTO> list = null;
-		
+
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problemAll"));
 			rset = pstmt.executeQuery();
 			list = new ArrayList<ProblemDTO>();
+
 			while (rset.next()) {
-				list.add(new ProblemDTO(rset.getString(1), 
-										rset.getInt(2), 
-										rset.getString(3),
-										rset.getString(4)));
+				list.add(new ProblemDTO(rset.getString(1), rset.getInt(2), rset.getString(3), rset.getString(4)));
 			}
 		} finally {
 			DBUtil.close(con, pstmt, rset);
