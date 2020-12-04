@@ -132,9 +132,6 @@ public class CustodianDAO {
 				list.add(new CustodianDTO(rset.getInt(1), rset.getString(2), rset.getString(3), rset.getInt(4),
 						rset.getString(5), rset.getString(6), rset.getInt(7), rset.getString(8)));
 			}
-		} catch (SQLException s) {
-			s.printStackTrace();
-			throw s;
 		} finally {
 			DBUtil.close(con, stmt, rset);
 		}
