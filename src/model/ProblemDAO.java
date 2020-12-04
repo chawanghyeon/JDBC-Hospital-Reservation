@@ -31,10 +31,10 @@ public class ProblemDAO {
 		try {
 			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sqlAll.getProperty("problem.insert"));
-			pstmt.setString(1, problem.getPatientId());
+			pstmt.setString(1, problem.getProblemCode());
 			pstmt.setInt(2, problem.getStartDate());
-			pstmt.setString(3, problem.getProblemCode());
-			pstmt.setString(4, problem.getProblemName());
+			pstmt.setString(3, problem.getProblemName());
+			pstmt.setString(4, problem.getPatientId());
 
 			if (pstmt.executeUpdate() == 1) {
 				return true;
