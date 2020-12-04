@@ -2,6 +2,8 @@ package view;
 
 import java.util.ArrayList;
 
+import model.domain.CustodianDTO;
+import model.domain.InformationRecipientDTO;
 import model.domain.PatientDTO;
 import model.domain.ProblemDTO;
 
@@ -13,7 +15,7 @@ public class EndView {
 	}
 		
 	// 모든 의료기관 검색
-	public static void informationRecipientListView(ArrayList allInformationRecipient) {
+	public static void informationRecipientListView(ArrayList<InformationRecipientDTO> allInformationRecipient) {
 		int length = allInformationRecipient.size();
 		
 		if(length != 0) {
@@ -26,7 +28,7 @@ public class EndView {
 	}
 
 	// 모든 의사 검색
-	public static void custodianListView(ArrayList allCustodian) {
+	public static void custodianListView(ArrayList<CustodianDTO> allCustodian) {
 		int length = allCustodian.size();
 		
 		if(length != 0) {
@@ -45,6 +47,11 @@ public class EndView {
 		
 	// 예외 상황 출력
 	public static void showError(String message) {
+		System.out.println(message);
+	}
+	
+	// 정보 확인 메세지 출력
+	public static void showMessage(String message) {
 		System.out.println(message);
 	}
 }
