@@ -1,6 +1,6 @@
 /META-INF/
-/view/
-/model/
 /controller/
-/util/
 /exception/
+/model/
+/util/
+/view/
